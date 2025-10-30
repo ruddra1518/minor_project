@@ -1,0 +1,284 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  background-color: #fafafa;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
+.header {
+  background: linear-gradient(90deg, #7b61ff, #4fc3f7);
+  color: #fff;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.nav {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.nav a:hover {
+  opacity: 0.8;
+}
+
+
+section {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+section p {
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+
+.home {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.home .highlight {
+  background: linear-gradient(90deg, #4fc3f7, #7b61ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.home p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.gradient-btn {
+  background: linear-gradient(90deg, #4fc3f7, #7b61ff);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.gradient-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+}
+
+
+.about {
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.project-card img {
+  width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: block;
+    margin: 1rem auto;
+}
+
+.project-card:hover img {
+  transform: scale(1.03);
+}
+
+.project-card:hover {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transform: translateY(-4px);
+}
+
+.project-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+  color: #333;
+}
+
+
+.contact a {
+  color: #7b61ff;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+
+.footer {
+  background: #f3f3f3;
+  padding: 1rem 0;
+  text-align: center;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+@media (max-width: 768px) {
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  section {
+    padding: 3rem 1rem;
+  }
+
+  .home h2 {
+    font-size: 1.8rem;
+  }
+}
+
+
+
+.project-details {
+  max-height: 0; 
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.7s ease-in-out, opacity 0.5s ease;
+  text-align: left; 
+  margin-top: 1rem;
+}
+
+.project-details.expanded {
+  
+  max-height: 500px; 
+  opacity: 1;
+  padding-top: 1rem;
+  border-top: 1px dashed #eee;
+}
+
+.detail-section h4 {
+  font-size: 1rem;
+  margin: 0.8rem 0 0.4rem;
+  color: #7b61ff;
+}
+
+.project-details ul {
+  padding-left: 20px;
+  margin-bottom: 0.8rem;
+}
+
+.project-details li {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+
+.details-toggle[aria-expanded="true"]::before {
+    content: "Hide Details";
+}
+
+.details-toggle[aria-expanded="false"]::before {
+    content: "View Details";
+}
+
+
+.details-toggle {
+  text-decoration: none;
+}
+.details-toggle:empty::before {
+  content: "View Details";
+}
+
+
+.details-toggle {
+  
+  text-decoration: none;
+  color: #7b61ff; 
+  background: none; 
+  padding: 0; 
+}
+
+
+.details-toggle::before {
+    content: "View Details"; 
+}
+
+
+.details-toggle[aria-expanded="true"]::before {
+    content: "Hide Details";
+}
