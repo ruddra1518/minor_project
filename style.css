@@ -273,24 +273,24 @@ section p {
 
 
 .project-details {
-  /* Use a small, non-zero height that ensures a clean transition */
+  
   max-height: 0; 
-  /* This is crucial: clips the content when height is 0 */
+ 
   overflow: hidden; 
   opacity: 0;
-  /* Use 'all' or specifically target 'max-height' and 'opacity' */
+  
   transition: max-height 0.7s ease-in-out, opacity 0.4s ease, padding 0.4s ease;
   text-align: left; 
   margin-top: 1rem;
-  padding: 0; /* Ensure no default padding is keeping the height > 0 */
+  padding: 0; 
 }
 
 .project-details.expanded {
-  /* Set a ridiculously large max-height so it is never clipped on desktop */
+  
   max-height: 5000px; 
   opacity: 1;
   padding-top: 1rem;
-  padding-bottom: 1rem; /* Add padding so content doesn't touch the bottom */
+  padding-bottom: 1rem; 
   border-top: 1px dashed #eee;
 }
 
