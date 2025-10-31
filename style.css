@@ -76,24 +76,83 @@ section p {
 }
 
 
+/* ======== Home Section (Profile Image Above Text) ======== */
 .home {
-  height: 90vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  background-color: #fafafa;
+  padding-top: 5rem; /* slight downward spacing */
+}
+
+.home-content {
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
 }
 
-.home .highlight {
-  background: linear-gradient(90deg, #4fc3f7, #7b61ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Circular Profile Image */
+.home-image img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.home p {
+.home-image img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+}
+
+/* Text Below Image */
+.home-text h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.home-text p {
   font-size: 1.1rem;
   color: #555;
+  margin-bottom: 1.5rem;
 }
+
+/* Learn More Button */
+.gradient-btn {
+  background: linear-gradient(135deg, #4facfe 0%, #7366ff 100%);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.4s ease, transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(115,102,255,0.3);
+}
+
+.gradient-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(115,102,255,0.4);
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .home-image img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .home-text h2 {
+    font-size: 1.6rem;
+  }
+}
+
+
 
 
 .btn {
@@ -214,19 +273,24 @@ section p {
 
 
 .project-details {
+  /* Use a small, non-zero height that ensures a clean transition */
   max-height: 0; 
-  overflow: hidden;
+  /* This is crucial: clips the content when height is 0 */
+  overflow: hidden; 
   opacity: 0;
-  transition: max-height 0.7s ease-in-out, opacity 0.5s ease;
+  /* Use 'all' or specifically target 'max-height' and 'opacity' */
+  transition: max-height 0.7s ease-in-out, opacity 0.4s ease, padding 0.4s ease;
   text-align: left; 
   margin-top: 1rem;
+  padding: 0; /* Ensure no default padding is keeping the height > 0 */
 }
 
 .project-details.expanded {
-  
-  max-height: 500px; 
+  /* Set a ridiculously large max-height so it is never clipped on desktop */
+  max-height: 5000px; 
   opacity: 1;
   padding-top: 1rem;
+  padding-bottom: 1rem; /* Add padding so content doesn't touch the bottom */
   border-top: 1px dashed #eee;
 }
 
